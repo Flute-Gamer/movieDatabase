@@ -1,7 +1,6 @@
 from infra.configs.connection import DBConnctionHandler
 from infra.configs.base import Base
 
-# 🔴 ESSENCIAL: importar o model
 from infra.entities.filmes import Filmes
 
 def create_tables():
