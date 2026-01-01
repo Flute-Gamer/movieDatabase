@@ -7,8 +7,7 @@ class Filmes(Base):
     titulo: Mapped[str] = mapped_column(primary_key=True)
     genero: Mapped[str] = mapped_column(nullable=False)
     ano: Mapped[int] = mapped_column(nullable=False)
-    imdb_url: Mapped[str] = mapped_column(nullable=True)
-    imdb_image_url: Mapped[str] = mapped_column(nullable=True)
+    tmdb_id: Mapped[str] = mapped_column(nullable=True)
 
     def __repr__(self) -> str:
-        return f"Filme(titulo={self.titulo!r}, genero{self.genero!r}, ano={self.ano!r}, imdb_url={self.imdb_url!r}, imdb_image_url={self.imdb_image_url!r})"
+        return f"Filme(titulo={self.titulo!r}, genero{self.genero!r}, ano={self.ano!r}, imdb_url={self.tmdb_id!r})"

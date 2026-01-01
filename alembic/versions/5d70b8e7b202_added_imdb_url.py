@@ -1,4 +1,4 @@
-"""added imdb url
+"""added tmdb url
 
 Revision ID: 5d70b8e7b202
 Revises: 31086498a9a9
@@ -21,15 +21,10 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.add_column(
         "filmes",
-        sa.Column("imdb_url", sa.String(), nullable=True)
+        sa.Column("tmdb_id", sa.String(), nullable=True)
     )
 
-    op.add_column(
-        "filmes",
-        sa.Column("imdb_image_url", sa.String(), nullable=True)
-    )
 
 
 def downgrade() -> None:
-        op.drop_column("filmes", "imdb_url")
-        op.drop_column("filmes", "imdb_image_url")
+        op.drop_column("filmes", "tmdb_id")

@@ -7,9 +7,9 @@ class FilmesRepository:
             data = db.session.query(Filmes).all()
             return data
         
-    def insert(self, titulo, genero, ano):
+    def insert(self, titulo, genero, ano, tmdb_id):
         with DBConnctionHandler() as db:
-            data_insert = Filmes(titulo=titulo, genero=genero, ano=ano)
+            data_insert = Filmes(titulo=titulo, genero=genero, ano=ano, tmdb_id=tmdb_id)
             db.session.add(data_insert)
             db.session.commit()
 
@@ -18,7 +18,7 @@ class FilmesRepository:
             db.session.query(Filmes).filter(Filmes.titulo == titulo).delete()
             db.session.commit()
         
-    def update(self, titulo, ano):
+    def update(self, titulo, tmdb_id):
         with DBConnctionHandler() as db:
-            db.session.query(Filmes).filter(Filmes.titulo == titulo).update({"ano": ano})
+            db.session.query(Filmes).filter(Filmes.titulo == titulo).update({"tmdb_id": tmdb_id})
             db.session.commit()
