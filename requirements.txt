@@ -1,6 +1,6 @@
 dotenv==0.9.9
 sqlalchemy==2.0.45
-pyscopg2-binary==2.9.11
+psycopg2-binary==2.9.11
 alembic==1.16.5
 fastapi==0.128.0
 requests==2.32.5
