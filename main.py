@@ -1,9 +1,18 @@
 from fastapi import FastAPI
 from infra.repository.filmes_repository import FilmesRepository
 from get_movies import get_poster
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 repo = FilmesRepository()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
@@ -11,14 +20,15 @@ async def root():
 
 @app.get("/movies")
 def movies():
+    
     filmes = repo.select()
     #print("filmes: ", filmes)
     resultado = []
     for filme in filmes:
         resultado.append({
-            "titulo": filme.titulo,
-            "poster_link": get_poster(filme.tmdb_id)
+            **filme.__dict__,
+            "poster_link": f"https://image.tmdb.org/t/p/w500{get_poster(filme.tmdb_id)}"
         })
     print(resultado)
 
-    return("Filmes :", filmes)
+    return("Filmes :", resultado)
