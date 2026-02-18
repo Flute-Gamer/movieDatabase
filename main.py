@@ -8,6 +8,7 @@ repo = FilmesRepository()
 
 origins = [
     "https://movie-front-sand.vercel.app/",
+    "https://movie-front-5p4wrrmfv-igors-projects-01c1ee87.vercel.app",
     "http://localhost:3000",
 ]
 
