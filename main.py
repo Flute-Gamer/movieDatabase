@@ -7,7 +7,7 @@ app = FastAPI()
 repo = FilmesRepository()
 
 origins = [
-    "https://moviefront-gamma.vercel.app/",
+    "https://movie-front-sand.vercel.app/",
     "http://localhost:3000",
 ]
 
